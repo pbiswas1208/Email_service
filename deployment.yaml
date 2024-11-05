@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: email-service-app
+  template:
+    metadata:
+      labels:
+        app: email-service-app
+    spec:
+      containers:
+        - name: flask-app
+          image: pbiswas1208/email-service:latest
+          ports:
+            - containerPort: 7418
